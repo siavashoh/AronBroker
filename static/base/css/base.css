@@ -1,38 +1,42 @@
-
- 
 @font-face {
     font-family: IRANSans;
     font-style: normal;
     font-weight: bold;
-    src: url('IRANSans/IRANSans_Bold.ttf')  format("truetype");
+    src: url('IRANSans/IRANSans_Bold.ttf') format("truetype");
 }
+
 @font-face {
     font-family: IRANSans;
     font-style: normal;
     font-weight: 500;
-    src: url('IRANSans/IRANSans_Medium.ttf')  format("truetype");
+    src: url('IRANSans/IRANSans_Medium.ttf') format("truetype");
 }
+
 @font-face {
     font-family: IRANSans;
     font-style: normal;
     font-weight: 300;
-    src: url('IRANSans/IRANSans_Light.ttf')  format("truetype");
+    src: url('IRANSans/IRANSans_Light.ttf') format("truetype");
 }
+
 @font-face {
     font-family: IRANSans;
     font-style: normal;
     font-weight: 200;
-    src: url('IRANSans/IRANSans_UltraLight.ttf')  format("truetype");
+    src: url('IRANSans/IRANSans_UltraLight.ttf') format("truetype");
 }
+
 @font-face {
     font-family: IRANSans;
     font-style: normal;
     font-weight: normal;
-    src: url('IRANSans/IRANSans.ttf')  format("truetype");
+    src: url('IRANSans/IRANSans.ttf') format("truetype");
 }
 
 
 .body {
     font-family: IRANSans;
-    background-color: #ffffff;
+    direction: rtl;
+    background-color: #131519;
+    margin: 0;
 }
