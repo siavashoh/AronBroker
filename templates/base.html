@@ -1,30 +1,26 @@
 {% load static %}
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>aron broker</title>
     <!-- custom base style -->
-    <link href="{% static 'base/css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'base/css/base.css' %}" rel="stylesheet" />
 
     <!-- FAVICON AND TOUCH ICONS -->
 
-    {% block style %}
-    {% endblock %}
-</head>
+    {% block style %} {% endblock %}
+  </head>
 
-<body class="body">
+  <body class="body">
     <div class="row">
-        <!-- header section -->
+      <!-- header section -->
     </div>
-    {% block body %}
-    {% endblock %}
-</body>
-<!-- custom javascript -->
-<script type="text/javascript" src="{% static 'base/js/base.js' %}"></script>
-{% block javascript %}
-{% endblock %}
+    {% block body %} {% endblock %} {% include './aron/footer.html' %}
+  </body>
+  <!-- custom javascript -->
+  <script type="text/javascript" src="{% static 'base/js/base.js' %}"></script>
+  {% block javascript %} {% endblock %}
 </html>
