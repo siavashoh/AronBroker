@@ -6,11 +6,15 @@
 {% endblock %}
 
 {% block body%}
+{% include './options.html' %}
 {% include './about.html' %}
+{% include './services.html' %}
 {% include './features.html' %}
 {% include './methods.html' %}
+{% include './traders.html' %}
 {% endblock %}
 
 {% block javascript %}
+
 <script type="text/javascript" src="{% static 'aron/js/aron.js' %}"></script>
 {% endblock %}
