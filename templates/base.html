@@ -12,7 +12,8 @@
     <!-- custom base style -->
     <link href="{% static 'base/css/base.css' %}" rel="stylesheet" />
 
-    <!-- FAVICON AND TOUCH ICONS -->
+    <!-- chartJs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     {% block style %} {% endblock %}
   </head>
@@ -21,7 +22,8 @@
     <div class="row">
       <!-- header section -->
     </div>
-    {% block body %} {% endblock %} {% include './aron/footer.html' %}
+    {% block body %} {% endblock %} 
+    {% include './aron/footer.html' %}
   </body>
   <!-- custom javascript -->
   <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>

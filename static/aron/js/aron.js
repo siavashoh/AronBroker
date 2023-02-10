@@ -1,7 +1,7 @@
-$(function() {
+$(function () {
 
-  var s1 = $('#slider').sliderRotate({displayItems:5});
-  var s2 = $('#slider-2').sliderRotate({ autoSlide:true});
+  var s1 = $('#slider').sliderRotate({ displayItems: 5 });
+  var s2 = $('#slider-2').sliderRotate({ autoSlide: true });
 
 });
 
@@ -9,14 +9,14 @@ $(function() {
 //based on : https://www.jqueryscript.net/demo/Basic-3D-Image-Rotator-with-jQuery-CSS3-rotateSlider/
 // plugin template by https://jqueryboilerplate.com/
 ;
-(function($, window, document, undefined) {
+(function ($, window, document, undefined) {
 
   "use strict";
 
   var pluginName = "sliderRotate",
     dataKey = "plugin_" + pluginName;
 
-  var SliderRotate = function(element, options) {
+  var SliderRotate = function (element, options) {
 
     this.plugin_element = $(element);
     this.itemClass;
@@ -49,7 +49,7 @@ $(function() {
       time: 4,
       autoSlide: false,
       displayItems: 3,
-      activate: function() {}
+      activate: function () { }
     };
 
     this.init(options);
@@ -57,12 +57,12 @@ $(function() {
   };
 
   SliderRotate.prototype = {
-    init: function(options) {
+    init: function (options) {
 
       _init(options, this);
 
     },
-    destroy: function() {
+    destroy: function () {
       this.plugin_element.unbind().removeData();
       $('*', this.plugin_element).unbind().removeData();
       this.$sliderContainer.unbind('mouseenter.slider');
@@ -98,12 +98,12 @@ $(function() {
     _moveSlide(__this__.indexActive, __this__);
 
     //show container to prevent layout issues
-    setTimeout(function() {
+    setTimeout(function () {
       __this__.$sliderContainer.css("visibility", "visible");
     }, 400);
 
     //item mouse event
-    __this__.$item.on('click.rotate', function() {
+    __this__.$item.on('click.rotate', function () {
 
       //prevent click on active item
       if ($(this).hasClass(__this__.ACTIVE_CLASS)) return false;
@@ -115,7 +115,7 @@ $(function() {
     });
 
     //arrow mouse event
-    __this__.$arrow.on('click.rotate', function() {
+    __this__.$arrow.on('click.rotate', function () {
 
       //action (prev or next)
       var _action = $(this).data('action');
@@ -144,17 +144,17 @@ $(function() {
     _pauseSlide(__this__); //	remove timer
 
     var _miliseconds = Number(__this__.time) * 1000; //	converts to miliseconds
-    __this__.slider_timer = setTimeout(function() {
+    __this__.slider_timer = setTimeout(function () {
       _moveNext(__this__);
     }, _miliseconds);
 
     //stop items from auto slide
-    __this__.$sliderContainer.unbind('mouseenter.slider').on('mouseenter.slider', function() {
+    __this__.$sliderContainer.unbind('mouseenter.slider').on('mouseenter.slider', function () {
       _pauseSlide(__this__); //remove timer
     });
 
     //back to auto slide
-    __this__.$sliderContainer.unbind('mouseleave.slider').on('mouseleave.slider', function() {
+    __this__.$sliderContainer.unbind('mouseleave.slider').on('mouseleave.slider', function () {
       _autoSlide(__this__);
     });
 
@@ -218,7 +218,7 @@ $(function() {
     }
 
     // loop through all items
-    __this__.$item.each(function(index) {
+    __this__.$item.each(function (index) {
 
       if (index == __index__) {
 
@@ -273,7 +273,7 @@ $(function() {
   //----------------------------------------------------
   //----------------------------------------------------
   //----------------------------------------------------
-  $.fn[pluginName] = function(options) {
+  $.fn[pluginName] = function (options) {
 
     var plugin = this.data(dataKey);
 
@@ -339,3 +339,67 @@ var $owl = $("#options").owlCarousel({
 // $(window).resize(function () {
 //   $(".scroll").width($(".owl-stage").width());
 // });
+
+
+
+for (var d in data) {
+
+  const ctx = document.getElementById(data[d].currency.base);
+
+  var date_labels = [];
+  var price_data = [];
+
+  for (var i in data[d].data) {
+    date_labels.push(data[d].data[i].time_period_start);
+    price_data.push(data[d].data[i].rate_close);
+  }
+
+  let borderColor = "rgb(50,205,50)"
+  let backgroundColor = "rgb(220, 255, 220)"
+
+  if (data[d].currency.last_24h < 0) {
+    borderColor = "rgb(255, 50, 50)"
+    backgroundColor = "rgb(255, 220, 220)"
+  }
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: date_labels /* date */,
+      responsive: true,
+      datasets: [
+        {
+          borderColor: borderColor,
+          backgroundColor: backgroundColor,
+          fill: true,
+          data: price_data /* price */,
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      events: [
+
+      ],
+      elements: {
+        point: {
+          radius: 0
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        x: {
+          display: false
+        },
+        y: {
+          display: false
+        }
+      }
+    }
+  });
+
+}

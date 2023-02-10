@@ -1,0 +1,33 @@
+<div class="methods-section">
+    {% for d in data %}
+    <div class="row">
+        <div class="col">
+            {{ d.currency.fa_name }}
+            {{ d.currency.base }}
+        </div>
+        --------
+        <div class="col">
+            {{ d.data.0.rate_close }}
+            {{ d.currency.fa_quote }}
+        </div>
+        --------
+
+        {% if d.currency.last_24h > 0 %}
+        <div class="col" style="color: rgb(103, 255, 103);" dir="ltr">
+            {{ d.currency.last_24h }}%
+        </div>
+        {% else %}
+        <div class="col" style="color: rgb(255, 103, 103);" dir="ltr">
+            {{ d.currency.last_24h }}%
+        </div>
+        {% endif %}
+        --------
+        <div class="col" style="height: 10vh; width:20vw">
+            <canvas id="{{d.currency.base}}"></canvas>
+        </div>
+
+    </div>
+    {% endfor %}
+
+    </div>
+</div>

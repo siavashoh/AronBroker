@@ -12,9 +12,12 @@
 {% include './features.html' %}
 {% include './methods.html' %}
 {% include './traders.html' %}
+{% include './market.html'%}
 {% endblock %}
 
 {% block javascript %}
-
-<script type="text/javascript" src="{% static 'aron/js/aron.js' %}"></script>
+<script type="text/javascript">
+    const data = {{ data|safe }};
+</script>
+<script type="text/javascript" src="{% static 'aron/js/aron.js' data=data %}"></script>
 {% endblock %}

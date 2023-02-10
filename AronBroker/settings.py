@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# get env variables from .env file
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,6 +46,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "aron",
+    "crypto",
+    # celery
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
@@ -127,3 +138,41 @@ else:
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+
+# CryptoAPI settings
+
+CRYPTO_API_KEY = os.environ.get("CRYPTO_API_KEY", None)
+CRYPTO_API_BASE_URL = os.environ.get("CRYPTO_API_BASE_URL", None)
+CRYPTO_API_BASE_CURRENCY = os.environ.get("CRYPTO_API_BASE_CURRENCY", None)
+CRYPTO_API_BASE_TIME_FRAME = os.environ.get("CRYPTO_API_BASE_TIME_FRAME", None)
+
+if not CRYPTO_API_KEY:
+    raise Exception("CRYPTO_API_KEY is not defined")
+if not CRYPTO_API_BASE_URL:
+    raise Exception("CRYPTO_API_BASE_URL is not defined")
+if not CRYPTO_API_BASE_CURRENCY:
+    raise Exception("CRYPTO_API_BASE_CURRENCY is not defined")
+if not CRYPTO_API_BASE_TIME_FRAME:
+    raise Exception("CRYPTO_API_BASE_TIME_FRAME is not defined")
+
+
+# Celery settings
+
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", None)
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER_URL", None)
+CELERY_ACCEPT_CONTENT = ["application/json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_RESULT_EXTENDED = True
+CELERY_TIMEZONE = "UTC"
+
+from celery.schedules import crontab
+
+CELERY_BEAT_SCHEDULE = {
+    "run_every_night_second": {
+        "task": "crypto.tasks.some_task",
+        "schedule": crontab(minute="*"),
+    },
+}

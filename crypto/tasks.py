@@ -1,3 +1,11 @@
+from AronBroker.celery import app
+
+
+def some_task(self):
+    print("Hello World")
+    return "Hello World"
+
+
 import requests
 from datetime import datetime, timedelta, timezone
 from django.conf import settings
@@ -9,48 +17,34 @@ def get_data_from_crypto_api(currency, base_url, base_time_frame, api_key, days=
     start = end - timedelta(days=days)
     end = end.strftime("%Y-%m-%dT%H:%M:%S")
     start = start.strftime("%Y-%m-%dT%H:%M:%S")
-
     url = f"{base_url}exchangerate/{currency.base}/{currency.quote}/history?period_id={base_time_frame}&&time_start={start}&time_end={end}"
     headers = {"X-CoinAPI-Key": api_key}
-
-    print(url)
-    print(headers)
     res = requests.get(url, headers=headers)
-
-    print(res.text)
-
     if res.status_code != 200:
         raise Exception({"msg": res.json(), "status_code": res.status_code})
-
     return res.json()
 
-
+@app.task(bind=True)
 def get_crypto_data():
+    # remove all data in CryptoData
+    CryptoData.objects.all().delete()
+    
+    # get data from settings
     CRYPTO_API_KEY = getattr(settings, "CRYPTO_API_KEY")
     CRYPTO_API_BASE_URL = getattr(settings, "CRYPTO_API_BASE_URL")
-    CRYPTO_API_BASE_CURRENCY = getattr(settings, "CRYPTO_API_BASE_CURRENCY")
     CRYPTO_API_BASE_TIME_FRAME = getattr(settings, "CRYPTO_API_BASE_TIME_FRAME")
 
-    if not CRYPTO_API_KEY:
-        raise Exception("CRYPTO_API_KEY is not defined")
-    if not CRYPTO_API_BASE_URL:
-        raise Exception("CRYPTO_API_BASE_URL is not defined")
-    if not CRYPTO_API_BASE_CURRENCY:
-        raise Exception("CRYPTO_API_BASE_CURRENCY is not defined")
-    if not CRYPTO_API_BASE_TIME_FRAME:
-        raise Exception("CRYPTO_API_BASE_TIME_FRAME is not defined")
-
+    # get all currencies
     currency = Currency.objects.all()
 
-    CryptoData.objects.all().delete()
-
+    # get data from crypto api for each currency
     for c in currency:
         data = get_data_from_crypto_api(
             c,
             CRYPTO_API_BASE_URL,
             CRYPTO_API_BASE_TIME_FRAME,
             CRYPTO_API_KEY,
-            days=10,
+            days=7,
         )
         for d in data:
             time_period_start = datetime.strptime(
@@ -65,6 +59,7 @@ def get_crypto_data():
             rate_high = d["rate_high"]
             rate_low = d["rate_low"]
             rate_close = d["rate_close"]
+            
             CryptoData.objects.create(
                 currency=c,
                 time_period_start=time_period_start,
@@ -76,6 +71,7 @@ def get_crypto_data():
                 rate_low=rate_low,
                 rate_close=rate_close,
             )
+        
         last_24h = CryptoData.objects.filter(currency=c).order_by("-time_period_end")
         
         # get percent change in last 24h
@@ -83,3 +79,5 @@ def get_crypto_data():
         change = (change * 100)/last_24h[0].rate_close 
         c.last_24h = change
         c.save()
+
+    return {"msg": "success"}
