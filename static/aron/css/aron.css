@@ -432,6 +432,88 @@ li {
     margin: 2% 0;
 }
 
+.market-title {
+    margin-top: 4%;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.market-table {
+    width: 85%;
+    margin-right: 15%;
+    text-align: right;
+    margin-top: 5%;
+    align-items: center;
+}
+
+hr {
+    border-bottom: 1px solid #9F9F9F;
+}
+
+.market-table td {
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+.canvas {
+    height: 80px;
+    padding-top: 20px;
+}
+
+.c-name img {
+    margin-bottom: -10px;
+    height: 30px;
+}
+
+.canvas canvas {
+    padding-top: 20px;
+}
+
+.count {
+    color: #9F9F9F;
+}
+
+.c-name {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #131519;
+}
+
+.small-name {
+    font-size: 1rem;
+    color: #9F9F9F;
+    margin-right: 5px;
+}
+
+.market-table th {
+    padding: 0 10px;
+    color: #9F9F9F;
+    font-size: 1rem;
+}
+
+.hide-table {
+    display: block;
+}
+
+.market-text {
+    color: #9F9F9F;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    text-align: center;
+    margin: 2% 20%;
+}
+
+.market-section {
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 5%;
+}
+
 .traders>div {
     margin: 10px;
     display: flex;
@@ -664,7 +746,7 @@ li {
 /*  --------------------------------------------------  */
 
 .slider-rotate__item {
-
+    cursor: pointer;
     position: absolute;
     left: 50%;
     box-shadow: 0px 4px 144px rgba(0, 0, 0, 0.06);
@@ -974,8 +1056,17 @@ li {
 }
 
 @media (max-width: 900px) {
+    .market-table {
+        width: 100%;
+        margin-right: 0;
+    }
+
     .about-section-lg {
         display: none;
+    }
+
+    .c-name img {
+        height: 25px;
     }
 
     .slider-rotate__item {
@@ -1158,6 +1249,35 @@ li {
 }
 
 @media (max-width: 700px) {
+    .small-name {
+        font-size: 0.6rem;
+        margin-right: 0px;
+    }
+
+    .c-name img {
+        margin-bottom: -8px;
+        height: 20px;
+    }
+
+    .hide-table {
+        display: none;
+    }
+
+    .market-table {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .market-table td {
+        padding: 20px 10px;
+        font-size: 0.6rem;
+    }
+
+    .market-table th {
+        padding: 20px 10px;
+        font-size: 0.6rem;
+    }
+
     .methods-lg {
         display: none;
     }

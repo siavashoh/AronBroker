@@ -1,23 +1,18 @@
 $(function () {
-
-  var s1 = $('#slider').sliderRotate({ displayItems: 5 });
-  var s2 = $('#slider-2').sliderRotate({ autoSlide: true });
-
+  var s1 = $("#slider").sliderRotate({ displayItems: 5 });
+  var s2 = $("#slider-2").sliderRotate({ autoSlide: true });
 });
 
 //-------------------------------------------
 //based on : https://www.jqueryscript.net/demo/Basic-3D-Image-Rotator-with-jQuery-CSS3-rotateSlider/
 // plugin template by https://jqueryboilerplate.com/
-;
 (function ($, window, document, undefined) {
-
   "use strict";
 
   var pluginName = "sliderRotate",
     dataKey = "plugin_" + pluginName;
 
   var SliderRotate = function (element, options) {
-
     this.plugin_element = $(element);
     this.itemClass;
     this.arrowClass;
@@ -49,30 +44,26 @@ $(function () {
       time: 4,
       autoSlide: false,
       displayItems: 3,
-      activate: function () { }
+      activate: function () {},
     };
 
     this.init(options);
-
   };
 
   SliderRotate.prototype = {
     init: function (options) {
-
       _init(options, this);
-
     },
     destroy: function () {
       this.plugin_element.unbind().removeData();
-      $('*', this.plugin_element).unbind().removeData();
-      this.$sliderContainer.unbind('mouseenter.slider');
-      this.$sliderContainer.unbind('mouseleave.slider');
+      $("*", this.plugin_element).unbind().removeData();
+      this.$sliderContainer.unbind("mouseenter.slider");
+      this.$sliderContainer.unbind("mouseleave.slider");
       _pauseSlide(this); //remove timer
-    }
+    },
   };
 
   function _init(__options__, __this__) {
-
     //---------------------------------
     //---------------------------------
     var opts = __this__.options;
@@ -80,11 +71,14 @@ $(function () {
     opts.activate.call(__this__);
     //---------------------------------
     //---------------------------------
-    __this__.displayItens = (opts.displayItems == 3 || opts.displayItems == 5) ? opts.displayItems : __this__.DISPLAY_3;
-    __this__.itemClass = opts.itemClass || 'slider-rotate__item';
-    __this__.arrowClass = opts.arrowClass || 'js-slider-rotate-arrow';
-    __this__.$item = __this__.plugin_element.find('.' + __this__.itemClass);
-    __this__.$arrow = __this__.plugin_element.find('.' + __this__.arrowClass);
+    __this__.displayItens =
+      opts.displayItems == 3 || opts.displayItems == 5
+        ? opts.displayItems
+        : __this__.DISPLAY_3;
+    __this__.itemClass = opts.itemClass || "slider-rotate__item";
+    __this__.arrowClass = opts.arrowClass || "js-slider-rotate-arrow";
+    __this__.$item = __this__.plugin_element.find("." + __this__.itemClass);
+    __this__.$arrow = __this__.plugin_element.find("." + __this__.arrowClass);
     __this__.numItens = __this__.$item.length;
     __this__.indexActive = 0;
     __this__.$sliderContainer = $("." + __this__.SLIDER_CONTAINER);
@@ -92,7 +86,11 @@ $(function () {
     __this__.time = opts.time;
 
     //add class to change layout by 3 or 5 itens
-    __this__.plugin_element.addClass((__this__.displayItens == __this__.DISPLAY_3) ? __this__.CLASS_DISPLAY_3 : __this__.CLASS_DISPLAY_5);
+    __this__.plugin_element.addClass(
+      __this__.displayItens == __this__.DISPLAY_3
+        ? __this__.CLASS_DISPLAY_3
+        : __this__.CLASS_DISPLAY_5
+    );
 
     //start items positions
     _moveSlide(__this__.indexActive, __this__);
@@ -103,8 +101,7 @@ $(function () {
     }, 400);
 
     //item mouse event
-    __this__.$item.on('click.rotate', function () {
-
+    __this__.$item.on("click.rotate", function () {
       //prevent click on active item
       if ($(this).hasClass(__this__.ACTIVE_CLASS)) return false;
 
@@ -115,23 +112,17 @@ $(function () {
     });
 
     //arrow mouse event
-    __this__.$arrow.on('click.rotate', function () {
-
+    __this__.$arrow.on("click.rotate", function () {
       //action (prev or next)
-      var _action = $(this).data('action');
+      var _action = $(this).data("action");
 
-      if (_action == 'next') {
-
+      if (_action == "next") {
         //move slide
         _moveNext(__this__);
-
-      } else if (_action == 'prev') {
-
+      } else if (_action == "prev") {
         //move slide
         _movePrev(__this__);
-
       }
-
     });
 
     if (__this__.autoSlide) {
@@ -149,15 +140,18 @@ $(function () {
     }, _miliseconds);
 
     //stop items from auto slide
-    __this__.$sliderContainer.unbind('mouseenter.slider').on('mouseenter.slider', function () {
-      _pauseSlide(__this__); //remove timer
-    });
+    __this__.$sliderContainer
+      .unbind("mouseenter.slider")
+      .on("mouseenter.slider", function () {
+        _pauseSlide(__this__); //remove timer
+      });
 
     //back to auto slide
-    __this__.$sliderContainer.unbind('mouseleave.slider').on('mouseleave.slider', function () {
-      _autoSlide(__this__);
-    });
-
+    __this__.$sliderContainer
+      .unbind("mouseleave.slider")
+      .on("mouseleave.slider", function () {
+        _autoSlide(__this__);
+      });
   }
 
   //--------------
@@ -168,105 +162,101 @@ $(function () {
 
   //move slide to the next item
   function _moveNext(__this__) {
-
-    var _index = (__this__.indexActive == __this__.numItens - 1) ? 0 : (__this__.indexActive + 1);
+    var _index =
+      __this__.indexActive == __this__.numItens - 1
+        ? 0
+        : __this__.indexActive + 1;
 
     _moveSlide(_index, __this__);
-
   }
 
   //move slide to the previous item
   function _movePrev(__this__) {
-
-    var _index = (__this__.indexActive == 0) ? (__this__.numItens - 1) : (__this__.indexActive - 1);
+    var _index =
+      __this__.indexActive == 0
+        ? __this__.numItens - 1
+        : __this__.indexActive - 1;
 
     _moveSlide(_index, __this__);
-
   }
 
   function _moveSlide(__index__, __this__) {
-
     __this__.indexActive = __index__;
 
     // removing all classes
-    __this__.plugin_element.find('.' + __this__.ACTIVE_CLASS).removeClass(__this__.ACTIVE_CLASS);
-    __this__.plugin_element.find('.' + __this__.NEXT_CLASS).removeClass(__this__.NEXT_CLASS);
-    __this__.plugin_element.find('.' + __this__.PREV_CLASS).removeClass(__this__.PREV_CLASS);
-    __this__.plugin_element.find('.' + __this__.PREV2_CLASS).removeClass(__this__.PREV2_CLASS);
-    __this__.plugin_element.find('.' + __this__.NEXT2_CLASS).removeClass(__this__.NEXT2_CLASS);
+    __this__.plugin_element
+      .find("." + __this__.ACTIVE_CLASS)
+      .removeClass(__this__.ACTIVE_CLASS);
+    __this__.plugin_element
+      .find("." + __this__.NEXT_CLASS)
+      .removeClass(__this__.NEXT_CLASS);
+    __this__.plugin_element
+      .find("." + __this__.PREV_CLASS)
+      .removeClass(__this__.PREV_CLASS);
+    __this__.plugin_element
+      .find("." + __this__.PREV2_CLASS)
+      .removeClass(__this__.PREV2_CLASS);
+    __this__.plugin_element
+      .find("." + __this__.NEXT2_CLASS)
+      .removeClass(__this__.NEXT2_CLASS);
 
     //if active index is the last item
     if (__index__ == __this__.numItens - 1) {
-
       __this__.$item.eq(0).addClass(__this__.NEXT_CLASS);
 
       if (__this__.displayItens == __this__.DISPLAY_5) {
         __this__.$item.eq(1).addClass(__this__.NEXT2_CLASS);
       }
-
     }
 
     //if active index is the first item
     if (__index__ == 0) {
-
       __this__.$item.eq(__this__.numItens - 1).addClass(__this__.PREV_CLASS);
 
       if (__this__.displayItens == __this__.DISPLAY_5) {
         __this__.$item.eq(__this__.numItens - 2).addClass(__this__.PREV2_CLASS);
       }
-
     }
 
     // loop through all items
     __this__.$item.each(function (index) {
-
       if (index == __index__) {
-
         __this__.$item.eq(index).addClass(__this__.ACTIVE_CLASS);
-
       }
 
       if (index == __index__ + 1) {
-
         __this__.$item.eq(index).addClass(__this__.NEXT_CLASS);
-
       }
 
       if (index == __index__ - 1) {
-
         __this__.$item.eq(index).addClass(__this__.PREV_CLASS);
-
       }
 
       //just addClass if display 5 items
       if (__this__.displayItens == __this__.DISPLAY_5) {
-
         if (index == __index__ + 2) {
-
           __this__.$item.eq(index).addClass(__this__.NEXT2_CLASS);
-
         }
 
-        if (__index__ == (__this__.numItens - 2)) {
+        if (__index__ == __this__.numItens - 2) {
           __this__.$item.eq(0).addClass(__this__.NEXT2_CLASS);
         }
 
-        if ((__index__ - 2) == -1) {
-          __this__.$item.eq(__this__.numItens - 1).addClass(__this__.PREV2_CLASS);
+        if (__index__ - 2 == -1) {
+          __this__.$item
+            .eq(__this__.numItens - 1)
+            .addClass(__this__.PREV2_CLASS);
         }
 
         if (index == __index__ - 2) {
           __this__.$item.eq(index).addClass(__this__.PREV2_CLASS);
         }
-
       }
 
       if (__this__.autoSlide) {
         _autoSlide(__this__);
       }
-
     });
-
   }
 
   //----------------------------------------------------
@@ -274,11 +264,10 @@ $(function () {
   //----------------------------------------------------
   //----------------------------------------------------
   $.fn[pluginName] = function (options) {
-
     var plugin = this.data(dataKey);
 
     if (plugin instanceof SliderRotate) {
-      if (typeof options !== 'undefined') {
+      if (typeof options !== "undefined") {
         plugin.init(options);
       }
     } else {
@@ -288,8 +277,7 @@ $(function () {
 
     return plugin;
   };
-
-}(jQuery, window, document));
+})(jQuery, window, document);
 // ******************************************************************************************
 var $owl = $("#s-list").owlCarousel({
   loop: false,
@@ -340,11 +328,8 @@ var $owl = $("#options").owlCarousel({
 //   $(".scroll").width($(".owl-stage").width());
 // });
 
-
-
 for (var d in data) {
-
-  const ctx = document.getElementById(data[d].currency.base);
+  // const ctx = document.getElementById(data[d].currency.base);
 
   var date_labels = [];
   var price_data = [];
@@ -354,12 +339,19 @@ for (var d in data) {
     price_data.push(data[d].data[i].rate_close);
   }
 
-  let borderColor = "rgb(50,205,50)"
-  let backgroundColor = "rgb(220, 255, 220)"
+  let borderColor = "rgb(50,205,50)";
+  let backgroundColor = "rgb(220, 255, 220)";
+  var canvas = document.getElementById(data[d].currency.base);
+  var ctx = canvas.getContext("2d");
+  var gradient = ctx.createLinearGradient(0, 0, 0, 80);
+  gradient.addColorStop(0, "rgb(220, 255, 220)");
+  gradient.addColorStop(1, "rgba(255,255,255,1)");
 
   if (data[d].currency.last_24h < 0) {
-    borderColor = "rgb(255, 50, 50)"
-    backgroundColor = "rgb(255, 220, 220)"
+    borderColor = "rgb(255, 50, 50)";
+    gradient = ctx.createLinearGradient(0, 0, 0, 80);
+    gradient.addColorStop(0, "rgb(255, 220, 220)");
+    gradient.addColorStop(1, "rgba(255,255,255,1)");
   }
 
   new Chart(ctx, {
@@ -370,36 +362,33 @@ for (var d in data) {
       datasets: [
         {
           borderColor: borderColor,
-          backgroundColor: backgroundColor,
+          backgroundColor: gradient,
           fill: true,
           data: price_data /* price */,
-          borderWidth: 1
-        }
-      ]
+          borderWidth: 1,
+        },
+      ],
     },
     options: {
-      events: [
-
-      ],
+      events: [],
       elements: {
         point: {
-          radius: 0
-        }
+          radius: 0,
+        },
       },
       plugins: {
         legend: {
-          display: false
-        }
+          display: false,
+        },
       },
       scales: {
         x: {
-          display: false
+          display: false,
         },
         y: {
-          display: false
-        }
-      }
-    }
+          display: false,
+        },
+      },
+    },
   });
-
 }

@@ -1,33 +1,46 @@
-<div class="methods-section">
-    {% for d in data %}
-    <div class="row">
-        <div class="col">
-            {{ d.currency.fa_name }}
-            {{ d.currency.base }}
-        </div>
-        --------
-        <div class="col">
-            {{ d.data.0.rate_close }}
-            {{ d.currency.fa_quote }}
-        </div>
-        --------
+<div class="market-section">
+  <p class="market-title">تجربه ترید با کمترین اسپرد</p>
+  <p class="market-text">
+    آرون گروپس ارائه دهنده نمادهای بدون کمیسیون، بدون سواپ و با اسپرد نزدیک به
+    صفر امکان مهامله بیش از ۱۰۰۰ نماد را برای معامله‌گران فراهم کرده است.
+  </p>
+  <table class="market-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>اسم</th>
+        <th>قیمت</th>
+        <th>تغییرات 24 ساعته</th>
+        <th class="hide-table">چارت</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in data %}
+      <tr>
+        <td class="count">{{ forloop.counter }}</td>
+        <td class="c-name">
+          <img src="/static/aron/img/eth.svg" />
+          {{ d.currency.fa_name }}
+          <span class="small-name">{{ d.currency.base }}</span>
+        </td>
+        <td>{{ d.data.0.rate_close }} {{ d.currency.fa_quote }}</td>
 
         {% if d.currency.last_24h > 0 %}
-        <div class="col" style="color: rgb(103, 255, 103);" dir="ltr">
-            {{ d.currency.last_24h }}%
-        </div>
+        <td style="color: rgb(103, 255, 103)" dir="ltd">
+          {{ d.currency.last_24h }}%
+        </td>
         {% else %}
-        <div class="col" style="color: rgb(255, 103, 103);" dir="ltr">
-            {{ d.currency.last_24h }}%
-        </div>
+        <td style="color: rgb(255, 103, 103)" dir="ltr">
+          {{ d.currency.last_24h }}%
+        </td>
         {% endif %}
-        --------
-        <div class="col" style="height: 10vh; width:20vw">
+        <td class="hide-table">
+          <div class="canvas">
             <canvas id="{{d.currency.base}}"></canvas>
-        </div>
-
-    </div>
-    {% endfor %}
-
-    </div>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
