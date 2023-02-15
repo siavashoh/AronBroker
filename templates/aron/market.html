@@ -26,8 +26,8 @@
         <td>{{ d.data.0.rate_close }} {{ d.currency.fa_quote }}</td>
 
         {% if d.currency.last_24h > 0 %}
-        <td style="color: rgb(103, 255, 103)" dir="ltd">
-          {{ d.currency.last_24h }}%
+        <td style="color: rgb(103, 255, 103)" dir="ltr">
+          +{{ d.currency.last_24h }}%
         </td>
         {% else %}
         <td style="color: rgb(255, 103, 103)" dir="ltr">
