@@ -400,9 +400,11 @@ var $owl = $("#s-list").owlCarousel({
     },
   },
 });
-var $owl = $("#options").owlCarousel({
+
+//////////////////////////////////////////// Options //////////////////////////////////////
+var $owl2 = $("#options").owlCarousel({
   loop: false,
-  margin: 10,
+  margin: 5,
   nav: false,
   stagePadding: 50,
   responsive: {
