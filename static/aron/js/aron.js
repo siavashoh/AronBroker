@@ -419,3 +419,21 @@ var $owl2 = $("#options").owlCarousel({
     },
   },
 });
+//////////////////////////////////////////// Market overview //////////////////////////////////////
+var $owl3 = $("#market-overview").owlCarousel({
+  loop: false,
+  margin: 5,
+  nav: false,
+  stagePadding: 50,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 2,
+    },
+    1000: {
+      items: 3,
+    },
+  },
+});

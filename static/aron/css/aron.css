@@ -48,7 +48,7 @@
   color: white;
 }
 .intro-section {
-  margin: 0 8%;
+  margin: 0 8% 0% 8%;
 }
 .carousel-inner .item {
   background-color: #131519;
@@ -401,15 +401,24 @@
 }
 
 /* market-overview section */
-.market-overview-section {
+#market-overview {
   direction: ltr;
-  position: absolute;
-  bottom: 10%;
-  left: 5%;
+}
+.market-overview-section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -50px;
+  padding: 0 5% 0 5%;
+  background: linear-gradient( 0deg, #f2f4f5 50%, #131519 50%);
 }
 .market-overview-section .item {
   direction: rtl;
   padding: 5%;
+}
+#market-overview .item{
+  margin-bottom: 0;
 }
 .overview-part {
   display: flex;
@@ -1233,7 +1242,7 @@ thead tr {
     padding-right: 0;
   }
   .carousel-indicators {
-    bottom: 20px;
+    bottom: 60px;
   }
   .header-section-lg {
     padding: 2% 2%;
@@ -1606,7 +1615,7 @@ thead tr {
     font-size: 2rem;
   }
   .carousel-indicators {
-    bottom: 30px;
+    bottom: 50px;
   }
   .account-sm {
     margin: 0 !important;
