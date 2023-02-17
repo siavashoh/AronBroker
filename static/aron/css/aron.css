@@ -124,7 +124,7 @@
 }
 .about-section-lg {
   margin: 0;
-  padding: 5% 8%;
+  padding: 5% 10%;
   background-color: white;
   display: flex;
   flex-flow: row;
@@ -187,14 +187,14 @@
 }
 
 .about-text {
-  font-size: 1.4rem;
-  line-height: 2rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
   color: #bfbfbf;
 }
 
 .about-title {
   color: #bfbfbf;
-  font-size: 2.5rem;
+  font-size: 4rem;
   line-height: 4rem;
   margin-bottom: 5%;
   margin-top: 20px;
@@ -227,6 +227,7 @@
   flex-flow: row;
   align-items: center;
   justify-content: space-around;
+  margin-left: 0;
 }
 
 .features-row {
@@ -249,20 +250,20 @@
 }
 
 .features-title p {
-  font-size: 1.7rem;
+  font-size: 3rem;
   color: white;
   margin-right: 20px;
 }
 
 .features-text {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
   color: #565f71;
   margin: 20px 0;
 }
 
 .features-mini-text {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 2rem;
   color: #565f71;
 }
@@ -367,7 +368,7 @@
 
 .methods-title {
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 }
 
 .methods {
@@ -392,7 +393,7 @@
 }
 
 .methods-text {
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 3rem;
   margin-top: 10px;
   margin-bottom: 30px;
@@ -561,7 +562,7 @@
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  padding: 5% 0;
+  padding: 5% 0 2% 0;
 }
 
 .traders {
@@ -601,12 +602,13 @@
   width: 100%;
   text-align: center;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
 .market-table {
-  width: 85%;
-  margin-right: 15%;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
   text-align: right;
   margin-top: 5%;
   align-items: center;
@@ -618,7 +620,7 @@ hr {
 
 .market-table td {
   padding: 0 10px;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 .canvas {
@@ -630,13 +632,13 @@ hr {
   width: 40%;
 }
 .c-name img {
-  margin-bottom: -10px;
+  margin-bottom: -5px;
   margin-left: 5px;
   height: 25px;
 }
 
 .canvas canvas {
-  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .count {
@@ -645,20 +647,20 @@ hr {
 
 .c-name {
   font-weight: 700;
-  font-size: 1.5rem;
   color: #131519;
 }
 
 .small-name {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #9f9f9f;
   margin-right: 5px;
 }
 
 .market-table th {
-  padding: 0 10px;
+  padding: 0 10px 20px 0;
   color: #9f9f9f;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  text-align: right !important;
 }
 
 .hide-table {
@@ -667,8 +669,8 @@ hr {
 
 .market-text {
   color: #9f9f9f;
-  font-size: 1.1rem;
-  line-height: 1.8rem;
+  font-size: 2rem;
+  line-height: 3rem;
   text-align: center;
   margin: 2% 20%;
 }
@@ -681,7 +683,9 @@ hr {
   justify-content: center;
   padding: 5% 5%;
 }
-
+thead tr {
+  border-bottom: 1px solid #dfdfdf;
+}
 .traders > div {
   margin: 10px;
   display: flex;
@@ -930,7 +934,7 @@ hr {
 }
 
 .slider-rotate__item > div {
-  width: 34vw !important;
+  width: 36vw !important;
 }
 
 .slider-rotate__item.slider-rotate__item--next {
@@ -1146,18 +1150,22 @@ hr {
   padding: 20px;
   line-height: 1.5rem;
 }
+.quote-card p {
+  margin: 0;
+}
 
 .quote-card > p {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .quote-date {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #9f9f9f;
 }
 
 .rate {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #9f9f9f;
 }
 
@@ -1169,8 +1177,9 @@ hr {
 }
 
 .trader-name {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-weight: 700;
+  margin-bottom: 5px !important;
 }
 
 .stars {
@@ -1206,7 +1215,7 @@ hr {
   padding: 2px 15px;
   margin-bottom: 30px;
   align-items: center;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   justify-content: start;
 }
 
@@ -1252,6 +1261,7 @@ hr {
   .market-table {
     width: 100%;
     margin-right: 0;
+    margin-left: 0;
   }
 
   .about-section-lg {
@@ -1266,10 +1276,6 @@ hr {
     position: absolute;
     left: 0%;
     top: 50%;
-  }
-
-  .slider-rotate__item > div {
-    width: 95vw !important;
   }
 
   .slider-rotate__container {
@@ -1325,7 +1331,7 @@ hr {
 
   .about-section-sm {
     margin: 0;
-    padding: 5% 8%;
+    padding: 5% 2%;
     background-color: white;
     display: flex;
     flex-flow: column;
@@ -1335,8 +1341,8 @@ hr {
 
   .img-center {
     display: block;
-    margin: auto;
-    width: 80%;
+    margin: 30px auto;
+    width: 60%;
   }
 
   .section-button {
@@ -1350,15 +1356,15 @@ hr {
   }
 
   .features-section .sec-1 {
-    padding: 2% 2% 0 2%;
+    padding: 2% 5% 0 5%;
   }
 
   .features-section .sec-2 {
-    padding: 2% 2% 0 2%;
+    padding: 2% 5% 0 5%;
   }
 
   .features-section .sec-3 {
-    padding: 2% 2% 0 2%;
+    padding: 2% 5% 0 5%;
   }
 
   .features-info {
@@ -1366,7 +1372,7 @@ hr {
   }
 
   .features-title p {
-    font-size: 1.3rem;
+    font-size: 4rem;
   }
 
   .features-title {
@@ -1374,13 +1380,13 @@ hr {
   }
 
   .features-text {
-    font-size: 1.1rem;
-    line-height: 2rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
   }
 
   .features-mini-text {
-    font-size: 0.8rem;
-    line-height: 1.3rem;
+    font-size: 2rem;
+    line-height: 3rem;
   }
 
   .image-sm {
@@ -1399,6 +1405,7 @@ hr {
   .section-button-img {
     display: flex;
     flex-flow: row;
+    margin: 30px 0;
     justify-content: center;
     width: 100%;
   }
@@ -1458,7 +1465,7 @@ hr {
     align-items: flex-end;
   }
   .small-name {
-    font-size: 0.6rem;
+    font-size: 0.9rem;
     margin-right: 0px;
   }
 
@@ -1474,27 +1481,26 @@ hr {
   .market-table {
     width: 100%;
     margin-right: 0;
+    margin-left: 0;
   }
 
   .market-table td {
     padding: 20px 10px;
-    font-size: 0.6rem;
+    font-size: 1rem;
   }
 
   .market-table th {
     padding: 20px 10px;
-    font-size: 0.6rem;
-  }
-
-  .methods-lg {
-    display: none;
+    font-size: 0.8rem;
   }
 
   .slider-rotate__container {
     width: 97vw;
     height: 60vw;
   }
-
+  .methods-lg {
+    display: none;
+  }
   .methods-sm {
     display: block;
     direction: ltr;
@@ -1601,5 +1607,21 @@ hr {
   .traders-title {
     font-size: 1.8rem;
     margin: 20px 0;
+  }
+
+  .slider-rotate__item > div {
+    width: 95vw !important;
+  }
+  .features-title p {
+    font-size: 1.8rem;
+  }
+  .features-text {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .features-mini-text {
+    font-size: 1.5rem;
+    line-height: 3rem;
   }
 }
