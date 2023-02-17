@@ -449,26 +449,26 @@
 
 .service-button {
   width: 100%;
-  padding: 25px 0;
-  font-size: 1.1rem;
+  padding: 15px 0;
+  font-size: 1.5rem;
 }
 
 .services-info {
-  font-size: 1.1rem;
-  line-height: 1.7rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: #9f9f9f;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .services {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   line-height: 2rem;
   color: #131519;
   margin: 40px 0;
 }
 
 #s-list {
-  margin-left: 8%;
+  margin-left: 5%;
 }
 #s2-list {
   margin-left: 8%;
@@ -602,15 +602,24 @@
   width: 100%;
   text-align: center;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
-
+.trends {
+  font-size: 4rem;
+  color: black;
+  font-weight: 700;
+  margin-top: 20px;
+  text-align: right;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
 .market-table {
   width: 80%;
   margin-right: 10%;
   margin-left: 10%;
   text-align: right;
-  margin-top: 5%;
+  margin-top: 1%;
   align-items: center;
 }
 
@@ -1263,6 +1272,12 @@ thead tr {
     margin-right: 0;
     margin-left: 0;
   }
+  .trends {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 2.5rem;
+  }
 
   .about-section-lg {
     display: none;
@@ -1444,6 +1459,11 @@ thead tr {
   .tabs input[name="tab-control"]:nth-of-type(1):checked ~ .slider {
     transform: translateX(-30%);
   }
+  .services {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    margin: 20px 0;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1483,6 +1503,12 @@ thead tr {
     margin-right: 0;
     margin-left: 0;
   }
+  .trends {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 2.2rem;
+  }
 
   .market-table td {
     padding: 20px 10px;
@@ -1507,14 +1533,14 @@ thead tr {
   }
 
   .services {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     line-height: 2rem;
     margin: 20px 0;
   }
 
   .services-info {
-    font-size: 1.1rem;
-    line-height: 1.7rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     margin-bottom: 30px;
   }
 
@@ -1528,11 +1554,12 @@ thead tr {
 
   .service-button {
     padding: 10px 0;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   .owl-carousel .owl-stage {
     padding-left: 0 !important;
+    padding-right: 30px !important;
   }
 
   .methods-row {
@@ -1597,6 +1624,9 @@ thead tr {
     margin-top: 10px;
     margin-left: 0px;
   }
+  .market-text {
+    margin: 2% 0%;
+  }
   .traders > div {
     margin: 10px;
     flex: 60%;
@@ -1623,5 +1653,19 @@ thead tr {
   .features-mini-text {
     font-size: 1.5rem;
     line-height: 3rem;
+  }
+  .item {
+    padding: 10px;
+  }
+}
+@media (max-width: 400px) {
+  .services {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: #131519;
+    margin: 40px 0;
+  }
+  .item {
+    padding: 10px;
   }
 }

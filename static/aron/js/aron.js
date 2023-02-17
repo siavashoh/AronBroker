@@ -1,4 +1,4 @@
-// Bootstrap menu
+/////////////////////////////////// Bootstrap menu/////////////////////////////////////////////////
 function darken_screen(yesno) {
   if (yesno == true) {
     document.querySelector(".screen-darken").classList.add("active");
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       close_offcanvas();
     });
 });
-// Traders
+/////////////////////////////////////////////////// Traders /////////////////////////////////////////////////
 $(function () {
   var s1 = $("#slider").sliderRotate({ displayItems: 5 });
   var s2 = $("#slider-2").sliderRotate({ autoSlide: true });
@@ -317,7 +317,7 @@ $(function () {
   };
 })(jQuery, window, document);
 
-//market
+/////////////////////////////////////////////// market /////////////////////////////////////////////////
 for (var d in data) {
   // const ctx = document.getElementById(data[d].currency.base);
 
@@ -382,3 +382,38 @@ for (var d in data) {
     },
   });
 }
+/////////////////////////////////////// Services /////////////////////////////////////////////////
+var $owl = $("#s-list").owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  stagePadding: 100,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    650: {
+      items: 2,
+    },
+    1000: {
+      items: 4,
+    },
+  },
+});
+var $owl = $("#options").owlCarousel({
+  loop: false,
+  margin: 10,
+  nav: false,
+  stagePadding: 50,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 2,
+    },
+    1000: {
+      items: 4,
+    },
+  },
+});
