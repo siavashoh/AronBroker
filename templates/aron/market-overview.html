@@ -1,0 +1,32 @@
+<div class="market-overview-section">
+  <div id="s2-list" class="owl-carousel owl-theme scroll">
+    {% for d in data %}
+    <div class="item">
+      <div class="overview-part">
+        <div class="part1">
+          <div class="overview-part">
+            <img src="/static/aron/img/eth.svg" />
+            <p>{{ d.currency.base }}</p>
+            <p>{{ d.currency.fa_name }}</p>
+          </div>
+          <div class="overview-part">
+            {% if d.currency.last_24h > 0 %}
+            <p style="color: rgb(103, 255, 103)" dir="ltr">
+              +{{ d.currency.last_24h }}%
+            </p>
+            {% else %}
+            <p style="color: rgb(255, 103, 103)" dir="ltr">
+              {{ d.currency.last_24h }}%
+            </p>
+            {% endif %}
+            <p>{{ d.data.0.rate_close }} {{ d.currency.fa_quote }}</p>
+          </div>
+        </div>
+        <div class="canvas2">
+          <canvas id="{{d.currency.base}}"></canvas>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

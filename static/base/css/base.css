@@ -1,42 +1,162 @@
 @font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: bold;
-    src: url('IRANSans/IRANSans_Bold.ttf') format("truetype");
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: bold;
+  src: url("IRANSans/IRANSans_Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: 500;
-    src: url('IRANSans/IRANSans_Medium.ttf') format("truetype");
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 500;
+  src: url("IRANSans/IRANSans_Medium.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: 300;
-    src: url('IRANSans/IRANSans_Light.ttf') format("truetype");
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 300;
+  src: url("IRANSans/IRANSans_Light.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: 200;
-    src: url('IRANSans/IRANSans_UltraLight.ttf') format("truetype");
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 200;
+  src: url("IRANSans/IRANSans_UltraLight.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: normal;
-    src: url('IRANSans/IRANSans.ttf') format("truetype");
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url("IRANSans/IRANSans.ttf") format("truetype");
 }
-
 
 .body {
-    font-family: IRANSans;
-    direction: rtl;
-    background-color: #131519;
-    margin: 0;
+  font-family: IRANSans;
+  direction: rtl;
+  background-color: #131519;
+  margin: 0;
 }
+body.offcanvas-active {
+  overflow: hidden;
+}
+
+.offcanvas-header {
+  display: none;
+}
+
+.screen-darken {
+  height: 100%;
+  width: 0%;
+  z-index: 30;
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s linear, visibility 0.2s, width 2s ease-in;
+}
+
+.screen-darken.active {
+  z-index: 10;
+  transition: opacity 0.3s ease, width 0s;
+  opacity: 1;
+  width: 100%;
+  visibility: visible;
+}
+.btn-close {
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  margin-top: 45px;
+  margin-left: 20px;
+  border: 0;
+  padding: 0.25em 0.25em;
+  background: url(../../aron/img/close.svg);
+  opacity: unset;
+}
+.navbar-brand {
+  margin-top: 25px;
+}
+.navbar-nav {
+    list-style-type: none;
+    margin: 0 -30px;
+}
+/* ============ mobile view ============ */
+@media all and (max-width: 991px) {
+  .offcanvas-header {
+    display: block;
+  }
+  .float-end {
+    color: white;
+    float: left !important;
+  }
+
+  .mobile-offcanvas {
+    visibility: hidden;
+    transform: translateX(100%);
+    border-radius: 0;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1200;
+    width: 60%;
+    background-color: #131519;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .mobile-offcanvas.show {
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .mobile-offcanvas .container,
+  .mobile-offcanvas .container-fluid {
+    display: block;
+  }
+}
+.btn{
+   background: #131519;
+}
+.navbar-brand{
+    float: none;
+    height: 70px;
+}
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  width: auto;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+.nav-item {
+  border-bottom: 0.5px solid #20242b;
+  padding: 20px 0;
+}
+.navbar-nav>li>a{
+color: #727D94;
+margin-right:20px;
+font-size: 1.6rem;
+}
+.navbar-nav>li>img{
+width: 20px;
+}
+.navbar-nav>li>img{
+margin: auto !important;
+}
+.nav-lang {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
