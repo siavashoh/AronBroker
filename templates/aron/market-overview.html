@@ -1,4 +1,4 @@
-<div class="market-overview-section">
+<div class="market-overview-section-lg">
   <div id="market-overview" class="owl-carousel owl-theme scroll">
     {% for d in data %}
     <div class="item">
@@ -23,10 +23,38 @@
           </div>
         </div>
         <div class="canvas2">
-          <canvas id="{{d.currency.base}}"></canvas>
+          <canvas id="{{d.currency.base}}2"></canvas>
         </div>
       </div>
     </div>
     {% endfor %}
+  </div>
+</div>
+<div class="market-overview-section-sm">
+  <div class="slider-rotate slider-rotate_2" id="slider-3">
+    <div class="slider-rotate__container slider-rotate__container_2">
+      {% for d in data %}
+      <div class="slider-rotate__item slider-rotate__item_2">
+        <span class="position">{{ forloop.counter }}</span>
+        <div class="mo-item">
+          <div class="overview-part_2">
+            <img src="/static/aron/img/eth.svg" />
+            <p>{{ d.currency.base }}</p>
+            <p>{{ d.currency.fa_name }}</p>
+            {% if d.currency.last_24h > 0 %}
+            <p style="color: rgb(103, 255, 103)" dir="ltr">
+              +{{ d.currency.last_24h }}%
+            </p>
+            {% else %}
+            <p style="color: rgb(255, 103, 103)" dir="ltr">
+              {{ d.currency.last_24h }}%
+            </p>
+            {% endif %}
+            <p>{{ d.data.0.rate_close }} {{ d.currency.fa_quote }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
