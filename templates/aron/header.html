@@ -10,16 +10,18 @@
     </div>
   </div>
   <div class="lang-sec">
+    {% comment %}
     <select name="lang" id="lang">
       <option value="farsi">Fa</option>
       <option value="english">En</option>
     </select>
+    {% endcomment %}
     <button href="#" class="button">ورود به حساب</button>
   </div>
 </div>
 <div class="header-section-sm">
   <div class="container">
-    <button data-trigger="navbar_main" class="d-lg-none btn mt-2 " type="button">
+    <button data-trigger="navbar_main" class="d-lg-none btn mt-2" type="button">
       <img src="/static/aron/img/menu.svg" alt="menu" />
     </button>
     <nav
@@ -36,51 +38,50 @@
           alt="brand"
         />
 
-        <ul class="navbar-nav  pe-0">
+        <ul class="navbar-nav pe-0">
           <li class="nav-item d-flex flex-row active mt-5">
-            <img class="pe-3" src="/static/aron/img/home-icon.svg" alt="home" /><a
-              class="nav-link pe-3 text-white"
-              href="#"
-              >خانه
-            </a>
+            <img
+              class="pe-3"
+              src="/static/aron/img/home-icon.svg"
+              alt="home"
+            /><a class="nav-link pe-3 text-white" href="#">خانه </a>
           </li>
           <li class="nav-item d-flex flex-row">
-            <img class="pe-3" src="/static/aron/img/trade-icon.svg" alt="trade" /><a
-              class="nav-link pe-3"
-              href="#"
-            >
-              ترید
-            </a>
+            <img
+              class="pe-3"
+              src="/static/aron/img/trade-icon.svg"
+              alt="trade"
+            /><a class="nav-link pe-3" href="#"> ترید </a>
           </li>
           <li class="nav-item d-flex flex-row">
-            <img class="pe-3" src="/static/aron/img/teach-icon.svg" alt="teach" /><a
-              class="nav-link pe-3"
-              href="#"
-            >
-              آموزش ها
-            </a>
+            <img
+              class="pe-3"
+              src="/static/aron/img/teach-icon.svg"
+              alt="teach"
+            /><a class="nav-link pe-3" href="#"> آموزش ها </a>
           </li>
           <li class="nav-item d-flex flex-row">
-            <img class="pe-3" src="/static/aron/img/about-icon.svg" alt="about" /><a
-              class="nav-link pe-3"
-              href="#"
-            >
-              درباره ما
-            </a>
+            <img
+              class="pe-3"
+              src="/static/aron/img/about-icon.svg"
+              alt="about"
+            /><a class="nav-link pe-3" href="#"> درباره ما </a>
           </li>
           <li class="nav-item d-flex flex-row">
-            <img class="pe-3" src="/static/aron/img/blog-icon.svg" alt="blog" /><a
-              class="nav-link pe-3"
-              href="#"
-            >
-              بلاگ
-            </a>
+            <img
+              class="pe-3"
+              src="/static/aron/img/blog-icon.svg"
+              alt="blog"
+            /><a class="nav-link pe-3" href="#"> بلاگ </a>
           </li>
-          <div  class="nav-lang">
+          {% comment %}
+          <div class="nav-lang">
             <select name="lang" id="lang">
               <option value="farsi">Persian</option>
               <option value="english">English</option>
-            </select></div>
+            </select>
+          </div>
+          {% endcomment %}
         </ul>
       </div>
     </nav>

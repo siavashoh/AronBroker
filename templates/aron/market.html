@@ -11,8 +11,9 @@
         <th>#</th>
         <th>اسم</th>
         <th>قیمت</th>
-        <th>تغییرات 24 ساعته</th>
+        <th class="hide-table">تغییرات 24 ساعته</th>
         <th class="hide-table">چارت</th>
+        <th>اسپرد</th>
       </tr>
     </thead>
     <tbody>
@@ -27,11 +28,11 @@
         <td>{{ d.data.0.rate_close }} {{ d.currency.fa_quote }}</td>
 
         {% if d.currency.last_24h > 0 %}
-        <td style="color: rgb(103, 255, 103)" dir="ltr">
+        <td class="hide-table" style="color: rgb(103, 255, 103)" dir="ltr">
           +{{ d.currency.last_24h }}%
         </td>
         {% else %}
-        <td style="color: rgb(255, 103, 103)" dir="ltr">
+        <td class="hide-table" style="color: rgb(255, 103, 103)" dir="ltr">
           {{ d.currency.last_24h }}%
         </td>
         {% endif %}
@@ -40,6 +41,7 @@
             <canvas id="{{d.currency.base}}"></canvas>
           </div>
         </td>
+        <td dir="ltr">{{ d.currency.last_24h }}</td>
       </tr>
       {% endfor %}
     </tbody>
