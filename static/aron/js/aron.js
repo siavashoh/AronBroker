@@ -417,18 +417,22 @@ for (var d in data) {
 /////////////////////////////////////// Services /////////////////////////////////////////////////
 var $owl = $("#s-list").owlCarousel({
   loop: false,
+  dots: true,
   margin: 10,
   nav: false,
-  stagePadding: 100,
+  stagePadding: 80,
   responsive: {
     0: {
       items: 1,
     },
     650: {
-      items: 2,
+      items: 3,
     },
     1000: {
-      items: 3,
+      items: 3.4,
+    },
+    1700: {
+      items: 4.5,
     },
   },
 });
